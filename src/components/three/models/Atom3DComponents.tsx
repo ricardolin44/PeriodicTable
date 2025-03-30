@@ -34,7 +34,7 @@ function Electron({ radius, angle }: { radius: number; angle: number }) {
   return (
     <mesh position={[x, 0, z]}>
       <sphereGeometry args={[0.2, 16, 16]} />
-      <meshStandardMaterial color="#FFFFFF" />
+      <meshStandardMaterial color="#00FFFF" />
     </mesh>
   );
 }

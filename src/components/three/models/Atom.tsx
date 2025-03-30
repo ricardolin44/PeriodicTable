@@ -1,14 +1,19 @@
 'use client';
 
-import { parseElectronConfiguration } from '@/utils/calculations';
-import { ElectronShellGroup, SingleNucleus } from './Atom3DComponents';
+import { parseElectronConfiguration } from '@/utils/calculations/elementCard';
+import { ElectronShellGroup, SingleNucleus as Nucleus } from './Atom3DComponents';
 
-function Atom3D({ config }: { config: string }) {
+interface AtomProps {
+  config: string;
+}
+
+export default function Atom({ config }: AtomProps) {
   const shells = parseElectronConfiguration(config);
   const shellEntries = Object.entries(shells);
+
   return (
     <mesh>
-      <SingleNucleus />
+      <Nucleus />
       {shellEntries.map(([shellNumber, electronCount], index) => (
         <ElectronShellGroup
           key={shellNumber}
@@ -19,5 +24,3 @@ function Atom3D({ config }: { config: string }) {
     </mesh>
   );
 }
-
-export default Atom3D;

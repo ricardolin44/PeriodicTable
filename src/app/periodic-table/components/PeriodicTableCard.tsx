@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic';
 import { convertTemperature } from '@/utils/calculations';
 
 // Dynamically import Three.js components with no SSR
-const AtomCanvas = dynamic(() => import('@/components/three/AtomCanvas'), {
+const AtomCanvas = dynamic(() => import('../../../components/three/AtomCanvas'), {
   ssr: false,
   loading: () => (
     <div className="w-[15vw] h-[25vh] bg-gray-800 rounded-lg flex items-center justify-center">
@@ -25,17 +25,17 @@ interface PeriodicTableCardProps {
 const PeriodicTableCard = (props: PeriodicTableCardProps) => {
   const [selectedTemperatureUnit, setSelectedTemperatureUnit] = useState('kelvin');
   const [activePopup, setActivePopup] = useState<string | null>(null);
-  
+
   const handlePopup = (popupID: string) => {
     setActivePopup(popupID);
   };
-  
+
   const closePopup = () => {
     setActivePopup(null);
   };
-  
+
   if (!props.selectedElement) return null;
-  
+
   const convertedBoilTemperature = convertTemperature(
     props.selectedElement.boil ?? 0,
     selectedTemperatureUnit
@@ -44,7 +44,7 @@ const PeriodicTableCard = (props: PeriodicTableCardProps) => {
     props.selectedElement.melt ?? 0,
     selectedTemperatureUnit
   );
-  
+
   return (
     <div className="h-full">
       <ScrollArea className="h-[450px] overflow-y-auto pt-0 mb-6 text-gray-300 pr-3">
@@ -56,17 +56,17 @@ const PeriodicTableCard = (props: PeriodicTableCardProps) => {
                 alt={props.selectedElement.name}
                 className="h-60 max-w-72 object-cover mb-4"
               />
-              <Suspense fallback={
-                <div className="w-[15vw] h-[25vh] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <p className="text-white text-center">Loading 3D View...</p>
-                </div>
-              }>
-                <AtomCanvas electronConfig={props.selectedElement.electron_configuration} />
+              <Suspense
+                fallback={
+                  <div className="w-[15vw] h-[25vh] bg-gray-800 rounded-lg flex items-center justify-center">
+                    <p className="text-white text-center">Loading 3D View...</p>
+                  </div>
+                }
+              >
+                <AtomCanvas config={props.selectedElement.electron_configuration} />
               </Suspense>
             </div>
-            <h2 className="text-3xl font-bold mb-2">
-              {props.selectedElement.name}
-            </h2>
+            <h2 className="text-3xl font-bold mb-2">{props.selectedElement.name}</h2>
             {props.selectedElement.summary}
           </div>
         ) : (
@@ -78,8 +78,7 @@ const PeriodicTableCard = (props: PeriodicTableCardProps) => {
         <div className="flex justify-between border-b-2 border-gray-800 pb-1">
           <p>Appearance</p>
           <div className="flex">
-            {props.selectedElement?.color_rgba &&
-            props.selectedElement?.color_rgba.length > 0 ? (
+            {props.selectedElement?.color_rgba && props.selectedElement?.color_rgba.length > 0 ? (
               props.selectedElement.color_rgba.map((color, index) => (
                 <div
                   key={index}
