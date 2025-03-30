@@ -1,0 +1,35 @@
+{
+    "groups": [
+      { "label": "1", "row": 1, "column": 1, "notation": "IA" },
+      { "label": "2", "row": 2, "column": 2, "notation": "IIA" },
+      { "label": "3", "row": 4, "column": 3, "notation": "IIIB" },
+      { "label": "4", "row": 4, "column": 4, "notation": "IVB" },
+      { "label": "5", "row": 4, "column": 5, "notation": "VB" },
+      { "label": "6", "row": 4, "column": 6, "notation": "VIB" },
+      { "label": "7", "row": 4, "column": 7, "notation": "VIIB" },
+      { "label": "8", "row": 4, "column": 8, "notation": "VIII" },
+      { "label": "9", "row": 4, "column": 9, "notation": "VIII" },
+      { "label": "10", "row": 4, "column": 10, "notation": "VIII" },
+      { "label": "11", "row": 4, "column": 11, "notation": "IB" },
+      { "label": "12", "row": 4, "column": 12, "notation": "IIB" },
+      { "label": "13", "row": 2, "column": 13, "notation": "IIIA" },
+      { "label": "14", "row": 2, "column": 14, "notation": "IVA" },
+      { "label": "15", "row": 2, "column": 15, "notation": "VA" },
+      { "label": "16", "row": 2, "column": 16, "notation": "VIA" },
+      { "label": "17", "row": 2, "column": 17, "notation": "VIIA" },
+      { "label": "18", "row": 1, "column": 18, "notation": "VIIIA" }
+    ],
+    "periods": [
+      { "label": "1", "row": 2, "column": 1 },
+      { "label": "2", "row": 3, "column": 1 },
+      { "label": "3", "row": 4, "column": 1 },
+      { "label": "4", "row": 5, "column": 1 },
+      { "label": "5", "row": 6, "column": 1 },
+      { "label": "6", "row": 7, "column": 1 },
+      { "label": "7", "row": 8, "column": 1 }
+    ],
+    "cards": [
+      { "label": "Lanthanoid", "row": 6, "column": 3, "range": "57-71" },
+      { "label": "Actinoid", "row": 7, "column": 3, "range": "89-103" }
+    ]
+  }
